@@ -8,7 +8,6 @@ l = [int(x) for x in f.split(",")]
 
 def mean(a):
     n = len(a)
-    # First we sort the array
     s = sorted(a)
     if n % 2 != 0:
         return (s[int(n//2)])
