@@ -62,26 +62,11 @@ for coords in vents:
         y1 = coords[0][1]
         x2 = coords[1][0]
         y2 = coords[1][1]
-        #print("in 45: ", x1, y1, x2, y2)
         p = get_all_points(x1, y1, x2, y2)
         for i in p:
-            try:
-                the_map[x(int(i[0]))][y(int(i[1]))] += 1
-            except:
-                print("failed ", int(i[0]), int(i[1]))
-
-
-# for j in range(len(the_map[0])):
-#    for i in range(len(the_map)):
-#        if i == 7 and j == 3:
-#            print("X", end=" ")
-#        elif the_map[i][j] == 0:
-#            print(".", end=" ")
-#        else:
-#            print(the_map[i][j], end=" ")
-#    print("")
-#
+            the_map[x(int(i[0]))][y(int(i[1]))] += 1
 res = 0
+
 
 for i in the_map:
     for j in i:
