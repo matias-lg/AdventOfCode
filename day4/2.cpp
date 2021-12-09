@@ -56,8 +56,8 @@ pair<bool, int> hasWon(vector<vector<pair<int, bool>>> &board) {
 }
 
 int main() {
-  int n = 27;
-  int n_boards = 3;
+  int n = 100;
+  int n_boards = 100;
   vector<int> nums;
   while (n--) {
     int num;
@@ -80,40 +80,33 @@ int main() {
     }
     boards.push_back(board);
   }
-  // mark numbers
-  //  for (auto &&i : nums) {
-  //    for (auto &&b : boards) {
-  //      markNumber(b, i);
-  //      pair<bool, int> winner = hasWon(b);
-  //      if (winner.first) {
-  //        cout << winner.second << " " << i << endl;
-  //        cout << winner.second*i << endl;
-  //        return 0;
-  //      }
-  //    }
-  //  }
+
   int nn = 0;
+
   while (boards.size() > 1) {
-    cout << boards.size();
-    vector<vector<vector<pair<int, bool>>>>::iterator it;
-    while(it != boards.end()){
+    vector<vector<vector<pair<int, bool>>>>::iterator it = boards.begin();
+    cout << boards.size() << endl;
+    while (it != boards.end()) {
       markNumber(*it, nums[nn]);
-      if(hasWon(*it).first){
+      if (hasWon(*it).first) {
+        cout << "won with: " << nums[nn] << endl;
         it = boards.erase(it);
-      }
-      else{
+      } else {
         ++it;
       }
     }
-    n++;
+    nn++;
   }
+
   cout << boards.size() << " <-" << endl;
   for (int i = nn; i < nums.size(); i++) {
+    cout << "after num: " << nums[i] << endl;
     markNumber(boards[0], nums[i]);
     auto winner = hasWon(boards[0]);
     if (winner.first) {
-      cout << winner.second << " " << i << endl;
-      cout << winner.second * i << endl;
+      cout << winner.second << " " << nums[i] << endl;
+      cout << winner.second * nums[i] << endl;
+      return 0;
     }
   }
 
