@@ -1,9 +1,7 @@
-from sys import argv, setrecursionlimit
-from os import system
+from sys import argv
 from time import sleep
 from colorama import Style, Fore, init
 
-setrecursionlimit(20000)
 init()
 filename = argv[1]
 lines = open(filename, 'r').readlines()
