@@ -26,8 +26,6 @@ for _ in range(N_STEPS):
             to_sub.append((i[0], n))
             to_add.append((i[0][0]+i[1], n))
             to_add.append((i[1]+i[0][1], n))
-        else:
-            continue
     for i in to_add:
         count[i[0]] += i[1]
     for i in to_sub:
