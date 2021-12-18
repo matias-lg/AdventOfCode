@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
     int ii = 0;
     while (ii < 5) {
       for (auto &&n : cave[cl]) {
-        int new_n = (n + ii + i / 10);
+        int new_n = (n + ii + i / cave.size());
         if (new_n > 9)
           new_n = new_n % 10 + 1;
         cave2[i].push_back(new_n);
